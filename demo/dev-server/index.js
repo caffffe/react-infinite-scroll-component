@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import InfiniteListOf from '../../src/components/InfiniteListOf';
+import styles from './styles.scss';
 
 function ListItem({ key, value}) {
   return (
-    <div key={key} >
-      {value}
+    <div key={key} style={{ height: 50}} className={styles.item}>
+      item {value}
     </div>
   )
 }
@@ -25,7 +26,7 @@ export class InfiniteList extends React.Component {
       }
       return elements;
     }
-    handleInfiniteLoad() {
+    handleInfiniteLoad = () => {
       this.setState({
         isLoading: true
       });
@@ -46,6 +47,7 @@ export class InfiniteList extends React.Component {
             containerHeight={200}
             onLoad={this.handleInfiniteLoad}
             isLoading={this.state.isLoading}
+            className={styles.container}
           >
           {this.state.elements}
           </InfiniteListOf>

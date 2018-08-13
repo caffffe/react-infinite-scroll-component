@@ -44,7 +44,6 @@ export default class ListOf extends React.Component {
         if (this.props.displayBottomUpwards) {
           this.scrollContainer.scrollTop = 48 * this.elementHeight;
           indexStart = Math.floor(this.getScrollTop() / this.elementHeight);
-          console.log(`indexStart${indexStart}`);
         }
         this.setState({
           displayIndexStart: indexStart,
